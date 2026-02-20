@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-02-20)
 ## Current Position
 
 Phase: 2 of 5 (Service Dashboard and Actions)
-Plan: 1 of 2 in current phase
-Status: Phase 2 in progress — Plan 02-01 complete (backend API)
-Last activity: 2026-02-20 — Plan 02-01 complete: backend API for service dashboard (services list, actions, system info endpoints)
+Plan: 2 of 2 in current phase (phase complete)
+Status: Phase 2 complete — dashboard UI and backend API both done; ready for Phase 3
+Last activity: 2026-02-20 — Plan 02-02 complete: React service dashboard with auto-polling, color-coded status, health metrics, and action buttons
 
-Progress: [███░░░░░░░] 30%
+Progress: [████░░░░░░] 40%
 
 ## Performance Metrics
 
@@ -28,10 +28,10 @@ Progress: [███░░░░░░░] 30%
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-foundation | 2 | 36min | 18min |
-| 02-service-dashboard-and-actions | 1 | 3min | 3min |
+| 02-service-dashboard-and-actions | 2 | 28min | 14min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (6min), 01-02 (30min), 02-01 (3min)
+- Last 5 plans: 01-01 (6min), 01-02 (30min), 02-01 (3min), 02-02 (25min)
 - Trend: —
 
 *Updated after each plan completion*
@@ -56,6 +56,9 @@ Recent decisions affecting current work:
 - [02-01]: list-units --all is source of truth for full service list; show data fills metrics for loaded subset only
 - [02-01]: [not set] guard returns null (not NaN) — value && value !== '[not set]' ? parseInt(value, 10) : null
 - [02-01]: Action endpoint has own ALLOWED_DASHBOARD_ACTIONS separate from exec.js ALLOWED_ACTIONS to avoid exposing status/show as user actions
+- [02-02]: useServicePolling exposes setServices for optimistic row updates after actions — avoids waiting for next poll cycle
+- [02-02]: isFetching useRef guard (not state) prevents overlapping fetch calls without causing re-renders
+- [02-02]: API response is { ok, services } wrapper — hook extracts the services array before setting state
 
 ### Pending Todos
 
@@ -69,5 +72,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-20
-Stopped at: Completed 02-service-dashboard-and-actions/02-01-PLAN.md — backend API complete (GET /api/services with 173 services, POST /api/services/:name/action, GET /api/system), ready for Phase 2 Plan 02 (frontend)
+Stopped at: Completed 02-service-dashboard-and-actions/02-02-PLAN.md — service dashboard UI complete (auto-polling, color-coded status, health metrics, action buttons); Phase 2 fully done
 Resume file: None

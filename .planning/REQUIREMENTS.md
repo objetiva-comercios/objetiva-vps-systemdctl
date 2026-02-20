@@ -41,7 +41,7 @@
 - [x] **INFR-02**: Server binds to 127.0.0.1 only
 - [x] **INFR-03**: All systemctl commands use execFile with whitelist (never exec/shell)
 - [x] **INFR-04**: Service name input validated against `/^[\w@\-.]+$/`
-- [ ] **INFR-05**: Auto-polling of service status every 10 seconds
+- [x] **INFR-05**: Auto-polling of service status every 10 seconds
 
 ## v2 Requirements
 
@@ -120,7 +120,7 @@
 | INFR-02 | Phase 1 | Complete (01-01) |
 | INFR-03 | Phase 1 | Complete (01-01) |
 | INFR-04 | Phase 1 | Complete (01-01) |
-| INFR-05 | Phase 2 | Pending |
+| INFR-05 | Phase 2 | Complete |
 
 **Coverage:**
 - v1 requirements: 23 total

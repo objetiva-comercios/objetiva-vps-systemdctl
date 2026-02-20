@@ -13,7 +13,7 @@ Five phases that build from a security-correct foundation through a complete ser
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation** - Project scaffold, safe-execution wrapper, and infrastructure baseline (completed 2026-02-20)
-- [ ] **Phase 2: Service Dashboard and Actions** - Live service list with health metrics and full service control
+- [x] **Phase 2: Service Dashboard and Actions** - Live service list with health metrics and full service control (completed 2026-02-20)
 - [ ] **Phase 3: Search, Filtering, and Favorites** - Service discovery and personal organization
 - [ ] **Phase 4: Log Viewer** - Per-service journalctl output with time filtering and log level coloring
 - [ ] **Phase 5: Unit File Editor** - View and edit systemd unit files with syntax highlighting
@@ -46,7 +46,7 @@ Plans:
   3. The dashboard header shows the system hostname and system uptime
   4. Clicking start, stop, restart, enable, or disable on a service sends the correct systemctl command and the row updates to reflect the new state
   5. The service list auto-refreshes every 10 seconds without requiring a page reload
-**Plans:** 2 plans
+**Plans:** 2/2 plans complete
 
 Plans:
 - [ ] 02-01-PLAN.md — Backend API: systemctl parser, service list/action endpoints, system info endpoint
@@ -89,7 +89,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete    | 2026-02-20 |
-| 2. Service Dashboard and Actions | 0/2 | In progress | - |
+| 2. Service Dashboard and Actions | 2/2 | Complete   | 2026-02-20 |
 | 3. Search, Filtering, and Favorites | 0/? | Not started | - |
 | 4. Log Viewer | 0/? | Not started | - |
 | 5. Unit File Editor | 0/? | Not started | - |
