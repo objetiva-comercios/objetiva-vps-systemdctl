@@ -7,21 +7,21 @@
 
 ### Dashboard
 
-- [ ] **DASH-01**: User can see all systemd services with their current status (active/inactive/failed)
-- [ ] **DASH-02**: Each service shows load state, active state, sub-state, and enabled/disabled
-- [ ] **DASH-03**: Each service shows inline health metrics (PID, memory, CPU, uptime)
+- [x] **DASH-01**: User can see all systemd services with their current status (active/inactive/failed)
+- [x] **DASH-02**: Each service shows load state, active state, sub-state, and enabled/disabled
+- [x] **DASH-03**: Each service shows inline health metrics (PID, memory, CPU, uptime)
 - [ ] **DASH-04**: User can search services by name
 - [ ] **DASH-05**: User can filter services by status (running, stopped, failed)
 - [ ] **DASH-06**: User can mark services as watched/favorite for quick access
-- [ ] **DASH-07**: Dashboard shows system hostname and uptime
+- [x] **DASH-07**: Dashboard shows system hostname and uptime
 
 ### Service Actions
 
-- [ ] **ACTN-01**: User can start a stopped service
-- [ ] **ACTN-02**: User can stop a running service
-- [ ] **ACTN-03**: User can restart a service
-- [ ] **ACTN-04**: User can enable a service to start at boot
-- [ ] **ACTN-05**: User can disable a service from starting at boot
+- [x] **ACTN-01**: User can start a stopped service
+- [x] **ACTN-02**: User can stop a running service
+- [x] **ACTN-03**: User can restart a service
+- [x] **ACTN-04**: User can enable a service to start at boot
+- [x] **ACTN-05**: User can disable a service from starting at boot
 
 ### Log Viewer
 
@@ -98,18 +98,18 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DASH-01 | Phase 2 | Pending |
-| DASH-02 | Phase 2 | Pending |
-| DASH-03 | Phase 2 | Pending |
+| DASH-01 | Phase 2 | Complete |
+| DASH-02 | Phase 2 | Complete |
+| DASH-03 | Phase 2 | Complete |
 | DASH-04 | Phase 3 | Pending |
 | DASH-05 | Phase 3 | Pending |
 | DASH-06 | Phase 3 | Pending |
-| DASH-07 | Phase 2 | Pending |
-| ACTN-01 | Phase 2 | Pending |
-| ACTN-02 | Phase 2 | Pending |
-| ACTN-03 | Phase 2 | Pending |
-| ACTN-04 | Phase 2 | Pending |
-| ACTN-05 | Phase 2 | Pending |
+| DASH-07 | Phase 2 | Complete |
+| ACTN-01 | Phase 2 | Complete |
+| ACTN-02 | Phase 2 | Complete |
+| ACTN-03 | Phase 2 | Complete |
+| ACTN-04 | Phase 2 | Complete |
+| ACTN-05 | Phase 2 | Complete |
 | LOGS-01 | Phase 4 | Pending |
 | LOGS-02 | Phase 4 | Pending |
 | LOGS-03 | Phase 4 | Pending |

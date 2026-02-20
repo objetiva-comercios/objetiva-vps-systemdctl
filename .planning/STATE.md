@@ -10,27 +10,28 @@ See: .planning/PROJECT.md (updated 2026-02-20)
 ## Current Position
 
 Phase: 2 of 5 (Service Dashboard and Actions)
-Plan: 0 of ? in current phase
-Status: Phase 1 complete — ready for Phase 2
-Last activity: 2026-02-20 — Plan 01-02 complete: dark terminal aesthetic confirmed in browser, Phase 1 done
+Plan: 1 of 2 in current phase
+Status: Phase 2 in progress — Plan 02-01 complete (backend API)
+Last activity: 2026-02-20 — Plan 02-01 complete: backend API for service dashboard (services list, actions, system info endpoints)
 
-Progress: [██░░░░░░░░] 20%
+Progress: [███░░░░░░░] 30%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 2
-- Average duration: 18min
-- Total execution time: 36min
+- Total plans completed: 3
+- Average duration: 13min
+- Total execution time: 39min
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-foundation | 2 | 36min | 18min |
+| 02-service-dashboard-and-actions | 1 | 3min | 3min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (6min), 01-02 (30min)
+- Last 5 plans: 01-01 (6min), 01-02 (30min), 02-01 (3min)
 - Trend: —
 
 *Updated after each plan completion*
@@ -52,6 +53,9 @@ Recent decisions affecting current work:
 - [Phase 01-foundation]: HOST binding must use Tailscale IP (100.87.113.34) not 0.0.0.0 — VPS accessed only via Tailscale VPN
 - [Phase 01-foundation]: React Router v7 imports from react-router (not react-router-dom) — packages merged in v7
 - [Phase 01-foundation]: Layout route uses Outlet pattern — App.tsx places Layout as parent Route element, child routes render inside without re-mounting shell
+- [02-01]: list-units --all is source of truth for full service list; show data fills metrics for loaded subset only
+- [02-01]: [not set] guard returns null (not NaN) — value && value !== '[not set]' ? parseInt(value, 10) : null
+- [02-01]: Action endpoint has own ALLOWED_DASHBOARD_ACTIONS separate from exec.js ALLOWED_ACTIONS to avoid exposing status/show as user actions
 
 ### Pending Todos
 
@@ -65,5 +69,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-20
-Stopped at: Completed 01-foundation/01-02-PLAN.md — dark terminal aesthetic confirmed in browser, Phase 1 complete, ready for Phase 2
+Stopped at: Completed 02-service-dashboard-and-actions/02-01-PLAN.md — backend API complete (GET /api/services with 173 services, POST /api/services/:name/action, GET /api/system), ready for Phase 2 Plan 02 (frontend)
 Resume file: None
