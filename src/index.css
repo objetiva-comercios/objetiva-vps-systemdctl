@@ -1,12 +1,7 @@
-/* 1. Load font before tailwindcss import */
 @import '@fontsource-variable/jetbrains-mono';
-
-/* 2. Tailwind base */
 @import 'tailwindcss';
 
-/* 3. Brand design tokens */
 @theme {
-  /* Colors */
   --color-bg-base:      #0a0e14;
   --color-bg-surface:   #0f1319;
   --color-bg-elevated:  #151b23;
@@ -14,17 +9,16 @@
   --color-text-primary: #e2e8f0;
   --color-text-muted:   #64748b;
   --color-accent:       #22c55e;
+  --color-accent-dim:   #16a34a;
   --color-warning:      #f59e0b;
   --color-danger:       #ef4444;
   --color-info:         #3b82f6;
 
-  /* Font */
   --font-mono: 'JetBrains Mono Variable', monospace;
   --default-font-family: var(--font-mono);
   --default-mono-font-family: var(--font-mono);
 }
 
-/* 4. Global defaults */
 @layer base {
   html, body, #root {
     @apply bg-bg-base text-text-primary font-mono;
