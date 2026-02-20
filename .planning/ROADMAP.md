@@ -46,7 +46,11 @@ Plans:
   3. The dashboard header shows the system hostname and system uptime
   4. Clicking start, stop, restart, enable, or disable on a service sends the correct systemctl command and the row updates to reflect the new state
   5. The service list auto-refreshes every 10 seconds without requiring a page reload
-**Plans**: TBD
+**Plans:** 2 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — Backend API: systemctl parser, service list/action endpoints, system info endpoint
+- [ ] 02-02-PLAN.md — Frontend dashboard: service table with health metrics, action buttons, and 10s auto-polling
 
 ### Phase 3: Search, Filtering, and Favorites
 **Goal**: The admin can narrow the service list by name or status and mark key services as watched for quick access
@@ -85,7 +89,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete    | 2026-02-20 |
-| 2. Service Dashboard and Actions | 0/? | Not started | - |
+| 2. Service Dashboard and Actions | 0/2 | In progress | - |
 | 3. Search, Filtering, and Favorites | 0/? | Not started | - |
 | 4. Log Viewer | 0/? | Not started | - |
 | 5. Unit File Editor | 0/? | Not started | - |
