@@ -37,7 +37,7 @@
 
 ### Infrastructure
 
-- [ ] **INFR-01**: Dark terminal aesthetic (dark background, green accent, JetBrains Mono)
+- [x] **INFR-01**: Dark terminal aesthetic (dark background, green accent, JetBrains Mono)
 - [x] **INFR-02**: Server binds to 127.0.0.1 only
 - [x] **INFR-03**: All systemctl commands use execFile with whitelist (never exec/shell)
 - [x] **INFR-04**: Service name input validated against `/^[\w@\-.]+$/`
@@ -116,7 +116,7 @@
 | UNIT-01 | Phase 5 | Pending |
 | UNIT-02 | Phase 5 | Pending |
 | UNIT-03 | Phase 5 | Pending |
-| INFR-01 | Phase 1 | Pending |
+| INFR-01 | Phase 1 | Complete |
 | INFR-02 | Phase 1 | Complete (01-01) |
 | INFR-03 | Phase 1 | Complete (01-01) |
 | INFR-04 | Phase 1 | Complete (01-01) |
