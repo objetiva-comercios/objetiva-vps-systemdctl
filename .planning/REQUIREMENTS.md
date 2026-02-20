@@ -98,35 +98,35 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DASH-01 | — | Pending |
-| DASH-02 | — | Pending |
-| DASH-03 | — | Pending |
-| DASH-04 | — | Pending |
-| DASH-05 | — | Pending |
-| DASH-06 | — | Pending |
-| DASH-07 | — | Pending |
-| ACTN-01 | — | Pending |
-| ACTN-02 | — | Pending |
-| ACTN-03 | — | Pending |
-| ACTN-04 | — | Pending |
-| ACTN-05 | — | Pending |
-| LOGS-01 | — | Pending |
-| LOGS-02 | — | Pending |
-| LOGS-03 | — | Pending |
-| UNIT-01 | — | Pending |
-| UNIT-02 | — | Pending |
-| UNIT-03 | — | Pending |
-| INFR-01 | — | Pending |
-| INFR-02 | — | Pending |
-| INFR-03 | — | Pending |
-| INFR-04 | — | Pending |
-| INFR-05 | — | Pending |
+| DASH-01 | Phase 2 | Pending |
+| DASH-02 | Phase 2 | Pending |
+| DASH-03 | Phase 2 | Pending |
+| DASH-04 | Phase 3 | Pending |
+| DASH-05 | Phase 3 | Pending |
+| DASH-06 | Phase 3 | Pending |
+| DASH-07 | Phase 2 | Pending |
+| ACTN-01 | Phase 2 | Pending |
+| ACTN-02 | Phase 2 | Pending |
+| ACTN-03 | Phase 2 | Pending |
+| ACTN-04 | Phase 2 | Pending |
+| ACTN-05 | Phase 2 | Pending |
+| LOGS-01 | Phase 4 | Pending |
+| LOGS-02 | Phase 4 | Pending |
+| LOGS-03 | Phase 4 | Pending |
+| UNIT-01 | Phase 5 | Pending |
+| UNIT-02 | Phase 5 | Pending |
+| UNIT-03 | Phase 5 | Pending |
+| INFR-01 | Phase 1 | Pending |
+| INFR-02 | Phase 1 | Pending |
+| INFR-03 | Phase 1 | Pending |
+| INFR-04 | Phase 1 | Pending |
+| INFR-05 | Phase 2 | Pending |
 
 **Coverage:**
 - v1 requirements: 23 total
-- Mapped to phases: 0
-- Unmapped: 23 (pending roadmap)
+- Mapped to phases: 23
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-02-20*
-*Last updated: 2026-02-20 after initial definition*
+*Last updated: 2026-02-20 after roadmap creation — all 23 v1 requirements mapped to phases 1-5*
