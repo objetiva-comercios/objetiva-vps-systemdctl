@@ -1,7 +1,18 @@
+import { useState, useEffect } from 'react'
 import { Outlet, NavLink } from 'react-router'
 import { Terminal, Server, ScrollText, Settings } from 'lucide-react'
+import type { SystemInfo } from '../types/service'
 
 function Header() {
+  const [hostname, setHostname] = useState<string>('localhost')
+
+  useEffect(() => {
+    fetch('/api/system')
+      .then(res => res.json())
+      .then((data: SystemInfo) => setHostname(data.hostname))
+      .catch(() => {/* keep 'localhost' fallback on error */})
+  }, [])
+
   return (
     <header className="flex items-center justify-between px-6 py-3 bg-bg-surface border-b border-border flex-shrink-0">
       <div className="flex items-center gap-3">
@@ -10,7 +21,7 @@ function Header() {
       </div>
       <div className="flex items-center gap-2 text-text-muted text-xs font-mono">
         <span className="w-2 h-2 rounded-full bg-accent inline-block"></span>
-        <span>localhost</span>
+        <span>{hostname}</span>
       </div>
     </header>
   )
