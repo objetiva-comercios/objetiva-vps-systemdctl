@@ -89,7 +89,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete    | 2026-02-20 |
-| 2. Service Dashboard and Actions | 2/2 | Complete   | 2026-02-20 |
+| 2. Service Dashboard and Actions | 2/2 | Complete    | 2026-02-20 |
 | 3. Search, Filtering, and Favorites | 0/? | Not started | - |
 | 4. Log Viewer | 0/? | Not started | - |
 | 5. Unit File Editor | 0/? | Not started | - |
