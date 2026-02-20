@@ -30,7 +30,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. All systemctl invocations pass through a single exec wrapper that uses execFile with an explicit action whitelist — no shell string is ever constructed
   4. Service name inputs are validated against `/^[\w@\-.]+$/` before reaching any child process call
   5. The dark terminal aesthetic (black background, green accent, JetBrains Mono font) is visible in the browser with no content yet
-**Plans**: TBD
+**Plans:** 2 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Project scaffold, Express server, SQLite database, and execFile security wrapper
+- [ ] 01-02-PLAN.md — Frontend shell with dark terminal aesthetic, layout, and placeholder page
 
 ### Phase 2: Service Dashboard and Actions
 **Goal**: The admin can see every systemd service on the system and start, stop, restart, enable, or disable any of them from the browser
@@ -80,7 +84,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/? | Not started | - |
+| 1. Foundation | 0/2 | Planning complete | - |
 | 2. Service Dashboard and Actions | 0/? | Not started | - |
 | 3. Search, Filtering, and Favorites | 0/? | Not started | - |
 | 4. Log Viewer | 0/? | Not started | - |
