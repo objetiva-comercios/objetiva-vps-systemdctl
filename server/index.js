@@ -2,6 +2,8 @@ import express from 'express'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { PORT, HOST } from './config.js'
+import servicesRouter from './routes/services.js'
+import systemRouter from './routes/system.js'
 
 // ESM __dirname replacement
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -20,7 +22,10 @@ app.get('/api/health', (req, res) => {
   res.json({ ok: true, timestamp: new Date().toISOString() })
 })
 
-// 3. Error handling middleware (registered before static serving)
+app.use('/api/services', servicesRouter)
+app.use('/api/system', systemRouter)
+
+// 3. Error handling middleware (registered after all API routes, before static serving)
 // eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
   const status = err.status ?? 500
