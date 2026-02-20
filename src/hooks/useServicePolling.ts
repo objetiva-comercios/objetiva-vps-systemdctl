@@ -23,8 +23,8 @@ export function useServicePolling(): UseServicePollingResult {
     try {
       const res = await fetch('/api/services')
       if (!res.ok) throw new Error(`Server error: ${res.status}`)
-      const data: ServiceEntry[] = await res.json()
-      setServices(data)
+      const data = await res.json()
+      setServices(data.services)
       setError(null)
       setLastUpdated(new Date())
     } catch (err) {

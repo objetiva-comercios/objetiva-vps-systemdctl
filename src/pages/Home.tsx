@@ -61,7 +61,7 @@ export default function Home() {
       </div>
 
       {/* Service table */}
-      <div className="flex-1 bg-bg-surface border border-border rounded-md overflow-hidden">
+      <div className="flex-1 min-h-0 bg-bg-surface border border-border rounded-md overflow-auto">
         <ServiceTable services={services} onServiceUpdate={handleServiceUpdate} />
       </div>
     </div>
