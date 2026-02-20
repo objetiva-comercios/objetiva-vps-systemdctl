@@ -38,9 +38,9 @@
 ### Infrastructure
 
 - [ ] **INFR-01**: Dark terminal aesthetic (dark background, green accent, JetBrains Mono)
-- [ ] **INFR-02**: Server binds to 127.0.0.1 only
-- [ ] **INFR-03**: All systemctl commands use execFile with whitelist (never exec/shell)
-- [ ] **INFR-04**: Service name input validated against `/^[\w@\-.]+$/`
+- [x] **INFR-02**: Server binds to 127.0.0.1 only
+- [x] **INFR-03**: All systemctl commands use execFile with whitelist (never exec/shell)
+- [x] **INFR-04**: Service name input validated against `/^[\w@\-.]+$/`
 - [ ] **INFR-05**: Auto-polling of service status every 10 seconds
 
 ## v2 Requirements
@@ -117,9 +117,9 @@
 | UNIT-02 | Phase 5 | Pending |
 | UNIT-03 | Phase 5 | Pending |
 | INFR-01 | Phase 1 | Pending |
-| INFR-02 | Phase 1 | Pending |
-| INFR-03 | Phase 1 | Pending |
-| INFR-04 | Phase 1 | Pending |
+| INFR-02 | Phase 1 | Complete (01-01) |
+| INFR-03 | Phase 1 | Complete (01-01) |
+| INFR-04 | Phase 1 | Complete (01-01) |
 | INFR-05 | Phase 2 | Pending |
 
 **Coverage:**
@@ -129,4 +129,4 @@
 
 ---
 *Requirements defined: 2026-02-20*
-*Last updated: 2026-02-20 after roadmap creation — all 23 v1 requirements mapped to phases 1-5*
+*Last updated: 2026-02-20 after 01-01 completion — INFR-02, INFR-03, INFR-04 marked complete*

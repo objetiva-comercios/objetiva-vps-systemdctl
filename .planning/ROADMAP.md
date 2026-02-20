@@ -33,7 +33,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans:** 2 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Project scaffold, Express server, SQLite database, and execFile security wrapper
+- [x] 01-01-PLAN.md — Project scaffold, Express server, SQLite database, and execFile security wrapper
 - [ ] 01-02-PLAN.md — Frontend shell with dark terminal aesthetic, layout, and placeholder page
 
 ### Phase 2: Service Dashboard and Actions
@@ -84,7 +84,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/2 | Planning complete | - |
+| 1. Foundation | 1/2 | In progress | - |
 | 2. Service Dashboard and Actions | 0/? | Not started | - |
 | 3. Search, Filtering, and Favorites | 0/? | Not started | - |
 | 4. Log Viewer | 0/? | Not started | - |
