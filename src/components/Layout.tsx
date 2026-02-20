@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router'
+import { Outlet, NavLink } from 'react-router'
 import { Terminal, Server, ScrollText, Settings } from 'lucide-react'
 
 function Header() {
@@ -18,27 +18,30 @@ function Header() {
 
 function Sidebar() {
   const navItems = [
-    { icon: Server, label: 'Services', href: '/', active: true },
-    { icon: ScrollText, label: 'Logs', href: '/logs', active: false },
-    { icon: Settings, label: 'Settings', href: '/settings', active: false },
+    { icon: Server, label: 'Services', to: '/' },
+    { icon: ScrollText, label: 'Logs', to: '/logs' },
+    { icon: Settings, label: 'Settings', to: '/settings' },
   ]
 
   return (
     <aside className="w-56 flex-shrink-0 bg-bg-surface border-r border-border flex flex-col">
       <nav className="flex-1 py-4">
-        {navItems.map(({ icon: Icon, label, href, active }) => (
-          <a
+        {navItems.map(({ icon: Icon, label, to }) => (
+          <NavLink
             key={label}
-            href={href}
-            className={`flex items-center gap-3 px-4 py-2.5 rounded-md mx-2 text-sm font-mono transition-colors ${
-              active
-                ? 'text-accent bg-bg-elevated'
-                : 'text-text-muted hover:text-accent'
-            }`}
+            to={to}
+            end={to === '/'}
+            className={({ isActive }) =>
+              `flex items-center gap-3 px-4 py-2.5 rounded-md mx-2 text-sm font-mono transition-colors ${
+                isActive
+                  ? 'text-accent bg-bg-elevated'
+                  : 'text-text-muted hover:text-accent'
+              }`
+            }
           >
             <Icon className="w-4 h-4" />
             {label}
-          </a>
+          </NavLink>
         ))}
       </nav>
     </aside>
