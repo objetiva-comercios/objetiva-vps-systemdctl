@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-20)
 
 **Core value:** An admin can fully manage all their systemd services from a web browser without touching SSH
-**Current focus:** Phase 4 — Log Viewer
+**Current focus:** Phase 5 — Unit File Editor
 
 ## Current Position
 
-Phase: 4 of 5 (Log Viewer)
-Plan: 1 of 1 in current phase (plan 01 complete — phase complete)
-Status: Phase 4 complete — per-service log viewer with journalctl backend, time presets, color-coded log lines, and ServiceRow deep links
-Last activity: 2026-02-21 — Plan 04-01 complete: journalctl-backed log viewer (GET /api/logs/:service endpoint, Logs.tsx page, ServiceRow ScrollText link)
+Phase: 5 of 5 (Unit File Editor)
+Plan: 1 of 2 in current phase (plan 01 complete)
+Status: Phase 5 in progress — unit file backend API complete (GET/PUT /api/unit/:service with atomic write and daemon-reload)
+Last activity: 2026-02-21 — Plan 05-01 complete: unit file backend (GET /api/unit/:service, PUT /api/unit/:service, daemon-reload in exec.js ALLOWED_ACTIONS)
 
-Progress: [████████░░] 73%
+Progress: [█████████░] 82%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 6
-- Average duration: 7.8min
-- Total execution time: 47min
+- Total plans completed: 7
+- Average duration: 6.9min
+- Total execution time: 48min
 
 **By Phase:**
 
@@ -31,9 +31,10 @@ Progress: [████████░░] 73%
 | 02-service-dashboard-and-actions | 2 | 28min | 14min |
 | 03-search-filtering-and-favorites | 2 | 5min | 2.5min |
 | 04-log-viewer | 1 | 3min | 3min |
+| 05-unit-file-editor | 1 | 1min | 1min |
 
 **Recent Trend:**
-- Last 5 plans: 02-02 (25min), 03-01 (3min), 03-02 (2min), 04-01 (3min)
+- Last 5 plans: 03-01 (3min), 03-02 (2min), 04-01 (3min), 05-01 (1min)
 - Trend: Fast execution on focused feature plans
 
 *Updated after each plan completion*
@@ -72,6 +73,10 @@ Recent decisions affecting current work:
 - [04-01]: Empty stdout guarded before split to avoid spurious empty-string entries in log list
 - [04-01]: Array.isArray(MESSAGE) guard handles binary log messages (journald encodes non-UTF8 bytes as number arrays in JSON)
 - [04-01]: Log viewer split into LogViewer component (when service present) and Logs page guard (routing) — clean separation
+- [05-01]: daemon-reload added to ALLOWED_ACTIONS with null service name — runSystemctl('daemon-reload', null) skips appending service arg
+- [05-01]: READ_PREFIXES allows 4 systemd paths; WRITE_PREFIX restricts to /etc/systemd/system/ only — package-managed files are read-only
+- [05-01]: Atomic write uses temp file in same directory as destination (dirname(destPath)) not /tmp — same filesystem guarantees POSIX atomic rename
+- [05-01]: validatePath uses resolve() (not join()) to canonicalize path before prefix check — prevents ../ traversal attacks
 
 ### Pending Todos
 
@@ -79,11 +84,11 @@ None yet.
 
 ### Blockers/Concerns
 
-- [Research flag]: systemd-analyze verify behavior on different unit file types should be validated during Phase 5 implementation
 - [04-01 note]: journalctl zombie process concern from research is moot — using execFileAsync (not streaming), so process lifecycle is managed by Node.js child_process timeout naturally
+- [05-01 resolved]: systemd-analyze verify deferred as non-requirement — UNIT-01/UNIT-03 do not require pre-save validation; research open question resolved as out-of-scope for v1
 
 ## Session Continuity
 
 Last session: 2026-02-21
-Stopped at: Completed 04-log-viewer/04-01-PLAN.md — per-service log viewer: GET /api/logs/:service endpoint, Logs.tsx with time presets and color-coded log lines, ServiceRow ScrollText link
+Stopped at: Completed 05-unit-file-editor/05-01-PLAN.md — unit file backend: GET/PUT /api/unit/:service with FragmentPath resolution, atomic write, daemon-reload
 Resume file: None

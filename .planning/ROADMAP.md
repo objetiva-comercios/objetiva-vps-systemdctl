@@ -90,7 +90,7 @@ Plans:
 **Plans:** 2 plans
 
 Plans:
-- [ ] 05-01-PLAN.md — Backend: exec.js daemon-reload allowlist, GET/PUT /api/unit/:service endpoints with atomic write
+- [x] 05-01-PLAN.md — Backend: exec.js daemon-reload allowlist, GET/PUT /api/unit/:service endpoints with atomic write
 - [ ] 05-02-PLAN.md — Frontend: UnitFile page with CodeMirror editor, route wiring, ServiceRow FileCode link
 
 ## Progress
@@ -104,4 +104,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 2. Service Dashboard and Actions | 2/2 | Complete    | 2026-02-20 |
 | 3. Search, Filtering, and Favorites | 2/2 | Complete    | 2026-02-21 |
 | 4. Log Viewer | 1/1 | Complete    | 2026-02-21 |
-| 5. Unit File Editor | 0/2 | Not started | - |
+| 5. Unit File Editor | 1/2 | In progress | - |
