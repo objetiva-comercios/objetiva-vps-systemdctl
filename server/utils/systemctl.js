@@ -1,8 +1,9 @@
 import { runSystemctl } from './exec.js'
 import db from '../db.js'
+import { resolve } from 'node:path'
 
 const SHOW_PROPS =
-  'Id,Description,MainPID,MemoryCurrent,CPUUsageNSec,ActiveEnterTimestamp,ActiveState,LoadState,SubState,UnitFileState'
+  'Id,Description,MainPID,MemoryCurrent,CPUUsageNSec,ActiveEnterTimestamp,ActiveState,LoadState,SubState,UnitFileState,FragmentPath'
 
 /**
  * Parse `systemctl list-units --plain --no-legend` output.
@@ -102,6 +103,8 @@ export async function getAllServices() {
           : null,
       activeEnterTimestamp: detail.ActiveEnterTimestamp || null,
       isWatched: watchedSet.has(svc.unit),
+      fragmentPath: detail.FragmentPath || null,
+      writable: detail.FragmentPath ? resolve(detail.FragmentPath).startsWith('/etc/systemd/system/') : false,
     }
   })
 }

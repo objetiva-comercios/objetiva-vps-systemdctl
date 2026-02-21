@@ -10,6 +10,8 @@ export interface ServiceEntry {
   cpuNsec: number | null
   activeEnterTimestamp: string | null
   isWatched: boolean
+  fragmentPath: string | null
+  writable: boolean
 }
 
 export interface SystemInfo {
