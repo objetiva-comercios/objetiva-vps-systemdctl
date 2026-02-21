@@ -1,5 +1,5 @@
 ---
-status: complete
+status: diagnosed
 phase: 05-unit-file-editor
 source: 05-01-SUMMARY.md, 05-02-SUMMARY.md
 started: 2026-02-21T14:20:00Z
@@ -59,19 +59,40 @@ skipped: 0
   reason: "User reported: not seeing syntax-highlighted (different colors/styles)"
   severity: minor
   test: 3
-  artifacts: []
-  missing: []
+  root_cause: "Read-only view uses plain <pre> tag. CodeMirror only mounts in edit mode. No tokenizer runs on read-only content."
+  artifacts:
+    - path: "src/pages/UnitFile.tsx"
+      issue: "Lines 191-193: plain <pre>{unitInfo.content}</pre> with no syntax highlighting"
+  missing:
+    - "Replace <pre> block with read-only CodeMirror instance using existing systemdLang extension (editable={false} readOnly={true})"
+  debug_session: ".planning/debug/readonly-no-syntax-highlight.md"
 - truth: "Save writes content atomically and triggers daemon-reload"
   status: failed
   reason: "User reported: EACCES: permission denied, open '/etc/systemd/system/.tmp-docusaurus.service.fbd484ce'"
   severity: blocker
   test: 7
-  artifacts: []
-  missing: []
+  root_cause: "Server runs as unprivileged user 'sanchez'. fs.writeFile() to /etc/systemd/system/ (root:root 0755) fails. systemctl commands work via D-Bus/polkit, but file writes are raw filesystem I/O with no privilege escalation."
+  artifacts:
+    - path: "server/routes/unit.js"
+      issue: "Lines 112-116: direct fs.writeFile + fs.rename to root-owned directory"
+  missing:
+    - "Write temp file to /tmp, then sudo cp to destination, then sudo chmod 0644, matching the child-process pattern used by runSystemctl()"
+  debug_session: ".planning/debug/unit-save-eacces.md"
 - truth: "Service list should visually distinguish editable (/etc/systemd/system/) from system-managed services"
   status: failed
   reason: "User reported: no way to differentiate user-created services from system-managed ones in the service list"
   severity: minor
   test: 4
-  artifacts: []
-  missing: []
+  root_cause: "API does not include FragmentPath in bulk service list. ServiceRow has no writable indicator. SHOW_PROPS in systemctl.js omits FragmentPath."
+  artifacts:
+    - path: "server/utils/systemctl.js"
+      issue: "SHOW_PROPS missing FragmentPath"
+    - path: "src/types/service.ts"
+      issue: "ServiceEntry missing fragmentPath and writable fields"
+    - path: "src/components/ServiceRow.tsx"
+      issue: "No visual indicator for editable vs system-managed"
+  missing:
+    - "Add FragmentPath to SHOW_PROPS, derive writable boolean, add to API response"
+    - "Add fragmentPath and writable to ServiceEntry type"
+    - "Add 'user' badge in ServiceRow for writable services"
+  debug_session: ".planning/debug/api-unit-returns-html.md"
