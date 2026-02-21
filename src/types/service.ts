@@ -9,6 +9,7 @@ export interface ServiceEntry {
   memoryBytes: number | null
   cpuNsec: number | null
   activeEnterTimestamp: string | null
+  isWatched: boolean
 }
 
 export interface SystemInfo {

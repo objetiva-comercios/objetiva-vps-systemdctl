@@ -1,6 +1,7 @@
 import express from 'express'
 import { runSystemctl } from '../utils/exec.js'
 import { getAllServices, parseShowOutput } from '../utils/systemctl.js'
+import db from '../db.js'
 
 const router = express.Router()
 
@@ -47,6 +48,8 @@ router.post('/:name/action', async (req, res, next) => {
     const detailMap = parseShowOutput(showResult.stdout)
     const detail = detailMap.get(name) ?? {}
 
+    const isWatched = !!db.prepare('SELECT 1 FROM watched_services WHERE unit = ?').get(name)
+
     res.json({
       ok: result.ok,
       stderr: result.stderr || undefined,
@@ -67,6 +70,7 @@ router.post('/:name/action', async (req, res, next) => {
             ? parseInt(detail.CPUUsageNSec, 10)
             : null,
         activeEnterTimestamp: detail.ActiveEnterTimestamp || null,
+        isWatched,
       },
     })
   } catch (err) {

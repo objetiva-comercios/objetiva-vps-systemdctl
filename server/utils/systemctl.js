@@ -1,4 +1,5 @@
 import { runSystemctl } from './exec.js'
+import db from '../db.js'
 
 const SHOW_PROPS =
   'Id,Description,MainPID,MemoryCurrent,CPUUsageNSec,ActiveEnterTimestamp,ActiveState,LoadState,SubState,UnitFileState'
@@ -68,6 +69,11 @@ export function parseShowOutput(stdout) {
  * @returns {Promise<object[]>}
  */
 export async function getAllServices() {
+  // Synchronous SQLite read — negligible overhead for <100 rows
+  const watchedSet = new Set(
+    db.prepare('SELECT unit FROM watched_services').all().map(r => r.unit)
+  )
+
   const [listResult, showResult] = await Promise.all([
     runSystemctl('list-units', null, ['--all', '--type=service', '--plain', '--no-legend']),
     runSystemctl('show', null, ['--type=service', '-p', SHOW_PROPS]),
@@ -95,6 +101,7 @@ export async function getAllServices() {
           ? parseInt(detail.CPUUsageNSec, 10)
           : null,
       activeEnterTimestamp: detail.ActiveEnterTimestamp || null,
+      isWatched: watchedSet.has(svc.unit),
     }
   })
 }
