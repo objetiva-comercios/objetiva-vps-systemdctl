@@ -89,9 +89,19 @@ export default function ServiceRow({ service, onServiceUpdate, onToggleWatch }: 
     <tr className="border-b border-border hover:bg-bg-elevated/50 transition-colors">
       {/* Service name */}
       <td className="px-3 py-2 max-w-xs">
-        <span className="font-mono text-xs text-text-primary truncate block" title={service.unit}>
-          {service.unit}
-        </span>
+        <div className="flex items-center gap-1.5">
+          <span className="font-mono text-xs text-text-primary truncate" title={service.unit}>
+            {service.unit}
+          </span>
+          {service.writable && (
+            <span
+              className="shrink-0 border border-accent/50 text-accent text-[10px] px-1 py-0 rounded font-mono leading-tight"
+              title="User unit — editable in /etc/systemd/system/"
+            >
+              user
+            </span>
+          )}
+        </div>
       </td>
 
       {/* Status */}
