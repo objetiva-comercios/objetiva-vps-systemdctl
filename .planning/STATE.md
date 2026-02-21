@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-20)
 
 **Core value:** An admin can fully manage all their systemd services from a web browser without touching SSH
-**Current focus:** Phase 3 — Search, Filtering, and Favorites
+**Current focus:** Phase 4 — Log Viewer
 
 ## Current Position
 
-Phase: 3 of 5 (Search, Filtering, and Favorites)
-Plan: 2 of 3 in current phase (plans 01–02 complete)
-Status: Phase 3 in progress — search, filter, star toggle, and watched section complete; remaining work TBD
-Last activity: 2026-02-21 — Plan 03-02 complete: SearchFilterBar, star toggle in ServiceRow, watched section in Home, optimistic toggle with server persistence
+Phase: 4 of 5 (Log Viewer)
+Plan: 1 of 1 in current phase (plan 01 complete — phase complete)
+Status: Phase 4 complete — per-service log viewer with journalctl backend, time presets, color-coded log lines, and ServiceRow deep links
+Last activity: 2026-02-21 — Plan 04-01 complete: journalctl-backed log viewer (GET /api/logs/:service endpoint, Logs.tsx page, ServiceRow ScrollText link)
 
-Progress: [██████░░░░] 53%
+Progress: [████████░░] 73%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 5
-- Average duration: 9min
-- Total execution time: 44min
+- Total plans completed: 6
+- Average duration: 7.8min
+- Total execution time: 47min
 
 **By Phase:**
 
@@ -30,10 +30,11 @@ Progress: [██████░░░░] 53%
 | 01-foundation | 2 | 36min | 18min |
 | 02-service-dashboard-and-actions | 2 | 28min | 14min |
 | 03-search-filtering-and-favorites | 2 | 5min | 2.5min |
+| 04-log-viewer | 1 | 3min | 3min |
 
 **Recent Trend:**
-- Last 5 plans: 02-01 (3min), 02-02 (25min), 03-01 (3min), 03-02 (2min)
-- Trend: Fast execution on focused backend plans
+- Last 5 plans: 02-02 (25min), 03-01 (3min), 03-02 (2min), 04-01 (3min)
+- Trend: Fast execution on focused feature plans
 
 *Updated after each plan completion*
 
@@ -66,6 +67,11 @@ Recent decisions affecting current work:
 - [03-02]: Running filter uses s.sub === 'running' not s.active === 'active' — excludes exited one-shot services giving accurate running counts
 - [03-02]: watchedServices derived from unfiltered services list so watched section is always visible regardless of active search/filter
 - [03-02]: StatusFilter type exported from SearchFilterBar.tsx (single source of truth) and imported into Home.tsx
+- [04-01]: journalctl called with --no-pager -q --output json to get structured JSON per line (machine-parseable)
+- [04-01]: VALID_SINCE whitelist map prevents time filter injection; unknown since values silently treated as 'all' (no --since arg)
+- [04-01]: Empty stdout guarded before split to avoid spurious empty-string entries in log list
+- [04-01]: Array.isArray(MESSAGE) guard handles binary log messages (journald encodes non-UTF8 bytes as number arrays in JSON)
+- [04-01]: Log viewer split into LogViewer component (when service present) and Logs page guard (routing) — clean separation
 
 ### Pending Todos
 
@@ -73,11 +79,11 @@ None yet.
 
 ### Blockers/Concerns
 
-- [Research flag]: journalctl zombie process cleanup behavior (SIGTERM + SIGKILL + stream.destroy()) should be validated on target Ubuntu/Debian version during Phase 4 implementation
 - [Research flag]: systemd-analyze verify behavior on different unit file types should be validated during Phase 5 implementation
+- [04-01 note]: journalctl zombie process concern from research is moot — using execFileAsync (not streaming), so process lifecycle is managed by Node.js child_process timeout naturally
 
 ## Session Continuity
 
 Last session: 2026-02-21
-Stopped at: Completed 03-search-filtering-and-favorites/03-02-PLAN.md — frontend search/filter/favorites UI: SearchFilterBar, star toggle, watched section, optimistic toggle
+Stopped at: Completed 04-log-viewer/04-01-PLAN.md — per-service log viewer: GET /api/logs/:service endpoint, Logs.tsx with time presets and color-coded log lines, ServiceRow ScrollText link
 Resume file: None

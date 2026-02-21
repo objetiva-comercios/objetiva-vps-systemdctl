@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Foundation** - Project scaffold, safe-execution wrapper, and infrastructure baseline (completed 2026-02-20)
 - [x] **Phase 2: Service Dashboard and Actions** - Live service list with health metrics and full service control (completed 2026-02-20)
 - [x] **Phase 3: Search, Filtering, and Favorites** - Service discovery and personal organization (completed 2026-02-21)
-- [ ] **Phase 4: Log Viewer** - Per-service journalctl output with time filtering and log level coloring
+- [x] **Phase 4: Log Viewer** - Per-service journalctl output with time filtering and log level coloring (completed 2026-02-21)
 - [ ] **Phase 5: Unit File Editor** - View and edit systemd unit files with syntax highlighting
 
 ## Phase Details
@@ -77,7 +77,7 @@ Plans:
 **Plans:** 1 plan
 
 Plans:
-- [ ] 04-01-PLAN.md — Backend log endpoint + frontend log viewer with time presets and color-coded severity
+- [x] 04-01-PLAN.md — Backend log endpoint + frontend log viewer with time presets and color-coded severity
 
 ### Phase 5: Unit File Editor
 **Goal**: The admin can read and edit a service's unit file from the browser, with the change applied and reloaded on the server without SSH
@@ -98,5 +98,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 1. Foundation | 2/2 | Complete    | 2026-02-20 |
 | 2. Service Dashboard and Actions | 2/2 | Complete    | 2026-02-20 |
 | 3. Search, Filtering, and Favorites | 2/2 | Complete    | 2026-02-21 |
-| 4. Log Viewer | 0/1 | Not started | - |
+| 4. Log Viewer | 1/1 | Complete    | 2026-02-21 |
 | 5. Unit File Editor | 0/? | Not started | - |

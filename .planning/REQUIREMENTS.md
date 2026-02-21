@@ -25,9 +25,9 @@
 
 ### Log Viewer
 
-- [ ] **LOGS-01**: User can view last N lines of logs for a specific service
-- [ ] **LOGS-02**: User can filter logs by time range (last 5m, 15m, 1h, 6h, 1d)
-- [ ] **LOGS-03**: Log lines are color-coded by level (errors red, warnings amber)
+- [x] **LOGS-01**: User can view last N lines of logs for a specific service
+- [x] **LOGS-02**: User can filter logs by time range (last 5m, 15m, 1h, 6h, 1d)
+- [x] **LOGS-03**: Log lines are color-coded by level (errors red, warnings amber)
 
 ### Unit File Editor
 
@@ -110,9 +110,9 @@
 | ACTN-03 | Phase 2 | Complete |
 | ACTN-04 | Phase 2 | Complete |
 | ACTN-05 | Phase 2 | Complete |
-| LOGS-01 | Phase 4 | Pending |
-| LOGS-02 | Phase 4 | Pending |
-| LOGS-03 | Phase 4 | Pending |
+| LOGS-01 | Phase 4 | Complete |
+| LOGS-02 | Phase 4 | Complete |
+| LOGS-03 | Phase 4 | Complete |
 | UNIT-01 | Phase 5 | Pending |
 | UNIT-02 | Phase 5 | Pending |
 | UNIT-03 | Phase 5 | Pending |
