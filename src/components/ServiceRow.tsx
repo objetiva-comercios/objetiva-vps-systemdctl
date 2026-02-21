@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router'
 import {
   CircleCheck,
   CircleAlert,
@@ -11,6 +12,7 @@ import {
   LoaderCircle,
   Star,
   StarOff,
+  ScrollText,
 } from 'lucide-react'
 import type { ServiceEntry } from '../types/service'
 import { formatBytes, formatCpuTime, formatUptime } from '../types/service'
@@ -152,6 +154,15 @@ export default function ServiceRow({ service, onServiceUpdate, onToggleWatch }: 
               : <StarOff className="w-3.5 h-3.5" />
             }
           </button>
+
+          {/* View Logs link */}
+          <Link
+            to={`/logs/${encodeURIComponent(service.unit)}`}
+            title="View Logs"
+            className="p-1 rounded hover:bg-bg-elevated text-text-muted hover:text-accent transition-colors"
+          >
+            <ScrollText className="w-3.5 h-3.5" />
+          </Link>
 
           {/* Start (when inactive/dead/failed) */}
           {(!isActive || !isRunning) && service.active !== 'activating' && (
