@@ -10,8 +10,8 @@
 - [x] **DASH-01**: User can see all systemd services with their current status (active/inactive/failed)
 - [x] **DASH-02**: Each service shows load state, active state, sub-state, and enabled/disabled
 - [x] **DASH-03**: Each service shows inline health metrics (PID, memory, CPU, uptime)
-- [ ] **DASH-04**: User can search services by name
-- [ ] **DASH-05**: User can filter services by status (running, stopped, failed)
+- [x] **DASH-04**: User can search services by name
+- [x] **DASH-05**: User can filter services by status (running, stopped, failed)
 - [x] **DASH-06**: User can mark services as watched/favorite for quick access
 - [x] **DASH-07**: Dashboard shows system hostname and uptime
 
@@ -101,8 +101,8 @@
 | DASH-01 | Phase 2 | Complete |
 | DASH-02 | Phase 2 | Complete |
 | DASH-03 | Phase 2 | Complete |
-| DASH-04 | Phase 3 | Pending |
-| DASH-05 | Phase 3 | Pending |
+| DASH-04 | Phase 3 | Complete |
+| DASH-05 | Phase 3 | Complete |
 | DASH-06 | Phase 3 | Complete |
 | DASH-07 | Phase 2 | Complete |
 | ACTN-01 | Phase 2 | Complete |

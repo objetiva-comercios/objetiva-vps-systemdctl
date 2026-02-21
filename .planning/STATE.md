@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-20)
 ## Current Position
 
 Phase: 3 of 5 (Search, Filtering, and Favorites)
-Plan: 1 of 3 in current phase (plan 01 complete)
-Status: Phase 3 in progress — watched-services backend complete; frontend favorites UI pending
-Last activity: 2026-02-21 — Plan 03-01 complete: SQLite watched_services table, POST/DELETE toggle API, isWatched merged into service responses
+Plan: 2 of 3 in current phase (plans 01–02 complete)
+Status: Phase 3 in progress — search, filter, star toggle, and watched section complete; remaining work TBD
+Last activity: 2026-02-21 — Plan 03-02 complete: SearchFilterBar, star toggle in ServiceRow, watched section in Home, optimistic toggle with server persistence
 
-Progress: [█████░░░░░] 47%
+Progress: [██████░░░░] 53%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4
-- Average duration: 11min
-- Total execution time: 42min
+- Total plans completed: 5
+- Average duration: 9min
+- Total execution time: 44min
 
 **By Phase:**
 
@@ -29,10 +29,10 @@ Progress: [█████░░░░░] 47%
 |-------|-------|-------|----------|
 | 01-foundation | 2 | 36min | 18min |
 | 02-service-dashboard-and-actions | 2 | 28min | 14min |
-| 03-search-filtering-and-favorites | 1 | 3min | 3min |
+| 03-search-filtering-and-favorites | 2 | 5min | 2.5min |
 
 **Recent Trend:**
-- Last 5 plans: 01-02 (30min), 02-01 (3min), 02-02 (25min), 03-01 (3min)
+- Last 5 plans: 02-01 (3min), 02-02 (25min), 03-01 (3min), 03-02 (2min)
 - Trend: Fast execution on focused backend plans
 
 *Updated after each plan completion*
@@ -63,6 +63,9 @@ Recent decisions affecting current work:
 - [03-01]: UNIT_NAME_RE in watched.js wider than exec.js SERVICE_NAME_RE (allows backslash) — safe because watched route never shells out to systemctl
 - [03-01]: watchedSet built synchronously before parallel systemctl calls in getAllServices() — single SQLite read, negligible overhead for <100 rows
 - [03-01]: INSERT OR IGNORE for watch toggle — unit is PRIMARY KEY so idempotency guaranteed by schema; no separate exists check needed
+- [03-02]: Running filter uses s.sub === 'running' not s.active === 'active' — excludes exited one-shot services giving accurate running counts
+- [03-02]: watchedServices derived from unfiltered services list so watched section is always visible regardless of active search/filter
+- [03-02]: StatusFilter type exported from SearchFilterBar.tsx (single source of truth) and imported into Home.tsx
 
 ### Pending Todos
 
@@ -76,5 +79,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-21
-Stopped at: Completed 03-search-filtering-and-favorites/03-01-PLAN.md — watched-services backend: SQLite table, REST toggle endpoints (POST/DELETE /api/watched/:name), isWatched on all service responses
+Stopped at: Completed 03-search-filtering-and-favorites/03-02-PLAN.md — frontend search/filter/favorites UI: SearchFilterBar, star toggle, watched section, optimistic toggle
 Resume file: None
