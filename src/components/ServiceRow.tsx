@@ -13,6 +13,7 @@ import {
   Star,
   StarOff,
   ScrollText,
+  FileCode,
 } from 'lucide-react'
 import type { ServiceEntry } from '../types/service'
 import { formatBytes, formatCpuTime, formatUptime } from '../types/service'
@@ -162,6 +163,15 @@ export default function ServiceRow({ service, onServiceUpdate, onToggleWatch }: 
             className="p-1 rounded hover:bg-bg-elevated text-text-muted hover:text-accent transition-colors"
           >
             <ScrollText className="w-3.5 h-3.5" />
+          </Link>
+
+          {/* View Unit File link */}
+          <Link
+            to={`/unit/${encodeURIComponent(service.unit)}`}
+            title="View Unit File"
+            className="p-1 rounded hover:bg-bg-elevated text-text-muted hover:text-accent transition-colors"
+          >
+            <FileCode className="w-3.5 h-3.5" />
           </Link>
 
           {/* Start (when inactive/dead/failed) */}
