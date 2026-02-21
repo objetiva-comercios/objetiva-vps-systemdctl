@@ -60,7 +60,7 @@ Plans:
   1. Typing in a search box filters the service list in real time to show only services whose names contain the typed text
   2. Selecting a status filter (running, stopped, failed) shows only services matching that state
   3. An admin can mark a service as watched/favorite and it persists across page reloads — watched services appear in a dedicated section or are visually distinguished
-**Plans:** 2 plans
+**Plans:** 1/2 plans executed
 
 Plans:
 - [ ] 03-01-PLAN.md — Backend: watched_services SQLite table, REST toggle endpoints, isWatched merged into service API
@@ -94,6 +94,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete    | 2026-02-20 |
 | 2. Service Dashboard and Actions | 2/2 | Complete    | 2026-02-20 |
-| 3. Search, Filtering, and Favorites | 0/2 | In progress | - |
+| 3. Search, Filtering, and Favorites | 1/2 | In Progress|  |
 | 4. Log Viewer | 0/? | Not started | - |
 | 5. Unit File Editor | 0/? | Not started | - |

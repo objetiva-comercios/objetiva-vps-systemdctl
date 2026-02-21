@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-20)
 
 **Core value:** An admin can fully manage all their systemd services from a web browser without touching SSH
-**Current focus:** Phase 2 — Service Dashboard and Actions
+**Current focus:** Phase 3 — Search, Filtering, and Favorites
 
 ## Current Position
 
-Phase: 2 of 5 (Service Dashboard and Actions)
-Plan: 2 of 2 in current phase (phase complete)
-Status: Phase 2 complete — dashboard UI and backend API both done; ready for Phase 3
-Last activity: 2026-02-20 — Plan 02-02 complete: React service dashboard with auto-polling, color-coded status, health metrics, and action buttons
+Phase: 3 of 5 (Search, Filtering, and Favorites)
+Plan: 1 of 3 in current phase (plan 01 complete)
+Status: Phase 3 in progress — watched-services backend complete; frontend favorites UI pending
+Last activity: 2026-02-21 — Plan 03-01 complete: SQLite watched_services table, POST/DELETE toggle API, isWatched merged into service responses
 
-Progress: [████░░░░░░] 40%
+Progress: [█████░░░░░] 47%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 3
-- Average duration: 13min
-- Total execution time: 39min
+- Total plans completed: 4
+- Average duration: 11min
+- Total execution time: 42min
 
 **By Phase:**
 
@@ -29,10 +29,11 @@ Progress: [████░░░░░░] 40%
 |-------|-------|-------|----------|
 | 01-foundation | 2 | 36min | 18min |
 | 02-service-dashboard-and-actions | 2 | 28min | 14min |
+| 03-search-filtering-and-favorites | 1 | 3min | 3min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (6min), 01-02 (30min), 02-01 (3min), 02-02 (25min)
-- Trend: —
+- Last 5 plans: 01-02 (30min), 02-01 (3min), 02-02 (25min), 03-01 (3min)
+- Trend: Fast execution on focused backend plans
 
 *Updated after each plan completion*
 
@@ -59,6 +60,9 @@ Recent decisions affecting current work:
 - [02-02]: useServicePolling exposes setServices for optimistic row updates after actions — avoids waiting for next poll cycle
 - [02-02]: isFetching useRef guard (not state) prevents overlapping fetch calls without causing re-renders
 - [02-02]: API response is { ok, services } wrapper — hook extracts the services array before setting state
+- [03-01]: UNIT_NAME_RE in watched.js wider than exec.js SERVICE_NAME_RE (allows backslash) — safe because watched route never shells out to systemctl
+- [03-01]: watchedSet built synchronously before parallel systemctl calls in getAllServices() — single SQLite read, negligible overhead for <100 rows
+- [03-01]: INSERT OR IGNORE for watch toggle — unit is PRIMARY KEY so idempotency guaranteed by schema; no separate exists check needed
 
 ### Pending Todos
 
@@ -71,6 +75,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-02-20
-Stopped at: Completed 02-service-dashboard-and-actions/02-02-PLAN.md — service dashboard UI complete (auto-polling, color-coded status, health metrics, action buttons); Phase 2 fully done
+Last session: 2026-02-21
+Stopped at: Completed 03-search-filtering-and-favorites/03-01-PLAN.md — watched-services backend: SQLite table, REST toggle endpoints (POST/DELETE /api/watched/:name), isWatched on all service responses
 Resume file: None
