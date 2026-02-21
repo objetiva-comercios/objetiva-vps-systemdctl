@@ -15,6 +15,7 @@ export const ALLOWED_ACTIONS = Object.freeze([
   'is-enabled',
   'show',
   'list-units',
+  'daemon-reload', // Phase 5: needed by unit file writer after save
 ])
 
 // Matches service names: letters, digits, @, -, _, .
