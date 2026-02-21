@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-20)
 ## Current Position
 
 Phase: 5 of 5 (Unit File Editor)
-Plan: 2 of 2 in current phase (plan 02 complete — PHASE COMPLETE)
-Status: Phase 5 complete — all v1 features shipped: unit file viewer/editor with CodeMirror, FileCode links in ServiceRow, /unit/:service routes
-Last activity: 2026-02-21 — Plan 05-02 complete: UnitFile.tsx viewer/editor page, App.tsx routes, ServiceRow FileCode links
+Plan: 3 of 3 in current phase (plan 03 complete — GAP CLOSURE COMPLETE)
+Status: Phase 5 gap closure complete — EACCES unit file save fixed, fragmentPath+writable in service list API
+Last activity: 2026-02-21 — Plan 05-03 complete: sudo cp privilege escalation for unit file write, FragmentPath in bulk service list
 
 Progress: [██████████] 100%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 8
-- Average duration: 6.4min
-- Total execution time: 51min
+- Total plans completed: 9
+- Average duration: 5.8min
+- Total execution time: 52min
 
 **By Phase:**
 
@@ -31,10 +31,10 @@ Progress: [██████████] 100%
 | 02-service-dashboard-and-actions | 2 | 28min | 14min |
 | 03-search-filtering-and-favorites | 2 | 5min | 2.5min |
 | 04-log-viewer | 1 | 3min | 3min |
-| 05-unit-file-editor | 2 | 4min | 2min |
+| 05-unit-file-editor | 3 | 5min | 1.7min |
 
 **Recent Trend:**
-- Last 5 plans: 03-02 (2min), 04-01 (3min), 05-01 (1min), 05-02 (3min)
+- Last 5 plans: 04-01 (3min), 05-01 (1min), 05-02 (3min), 05-03 (1min)
 - Trend: Fast execution on focused feature plans
 
 *Updated after each plan completion*
@@ -75,8 +75,11 @@ Recent decisions affecting current work:
 - [04-01]: Log viewer split into LogViewer component (when service present) and Logs page guard (routing) — clean separation
 - [05-01]: daemon-reload added to ALLOWED_ACTIONS with null service name — runSystemctl('daemon-reload', null) skips appending service arg
 - [05-01]: READ_PREFIXES allows 4 systemd paths; WRITE_PREFIX restricts to /etc/systemd/system/ only — package-managed files are read-only
-- [05-01]: Atomic write uses temp file in same directory as destination (dirname(destPath)) not /tmp — same filesystem guarantees POSIX atomic rename
+- [05-01]: Atomic write uses temp file in same directory as destination (dirname(destPath)) not /tmp — same filesystem guarantees POSIX atomic rename (superseded by 05-03)
 - [05-01]: validatePath uses resolve() (not join()) to canonicalize path before prefix check — prevents ../ traversal attacks
+- [05-03]: Temp file written to /tmp (world-writable) then sudo cp to /etc/systemd/system/ — resolves EACCES for non-root server process
+- [05-03]: sudo cp + sudo chmod via execFileAsync array form — no shell, no tee, maintains same security posture as exec.js
+- [05-03]: writable in bulk service list derived from resolve(FragmentPath).startsWith('/etc/systemd/system/') — mirrors unit.js WRITE_PREFIX for consistency
 - [05-02]: StreamLanguage.define(properties) at module level avoids per-render recreation of CodeMirror language extension
 - [05-02]: Save button disabled when editContent === unitInfo.content — no-change guard prevents unnecessary PUT requests
 - [05-02]: unitInfo.content updated in-place on save success (not refetched) — efficient and keeps Save button accurately disabled after save
@@ -94,5 +97,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-21
-Stopped at: Completed 05-unit-file-editor/05-02-PLAN.md — UnitFile.tsx frontend page with CodeMirror editor, /unit/:service routes, FileCode links in ServiceRow — ALL PHASES COMPLETE
+Stopped at: Completed 05-unit-file-editor/05-03-PLAN.md — sudo cp privilege escalation for unit file write, FragmentPath+writable in bulk service list API — ALL GAP CLOSURE PLANS COMPLETE
 Resume file: None

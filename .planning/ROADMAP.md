@@ -92,7 +92,7 @@ Plans:
 Plans:
 - [x] 05-01-PLAN.md — Backend: exec.js daemon-reload allowlist, GET/PUT /api/unit/:service endpoints with atomic write
 - [x] 05-02-PLAN.md — Frontend: UnitFile page with CodeMirror editor, route wiring, ServiceRow FileCode link
-- [ ] 05-03-PLAN.md — Gap closure: Fix EACCES on unit file save (sudo cp), add FragmentPath+writable to service list API
+- [x] 05-03-PLAN.md — Gap closure: Fix EACCES on unit file save (sudo cp), add FragmentPath+writable to service list API
 - [ ] 05-04-PLAN.md — Gap closure: Read-only syntax highlighting (CodeMirror), writable badge in ServiceRow
 
 ## Progress
@@ -106,4 +106,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 2. Service Dashboard and Actions | 2/2 | Complete    | 2026-02-20 |
 | 3. Search, Filtering, and Favorites | 2/2 | Complete    | 2026-02-21 |
 | 4. Log Viewer | 1/1 | Complete    | 2026-02-21 |
-| 5. Unit File Editor | 2/4 | Gap closure | -- |
+| 5. Unit File Editor | 3/4 | Gap closure | -- |
