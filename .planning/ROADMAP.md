@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 2: Service Dashboard and Actions** - Live service list with health metrics and full service control (completed 2026-02-20)
 - [x] **Phase 3: Search, Filtering, and Favorites** - Service discovery and personal organization (completed 2026-02-21)
 - [x] **Phase 4: Log Viewer** - Per-service journalctl output with time filtering and log level coloring (completed 2026-02-21)
-- [x] **Phase 5: Unit File Editor** - View and edit systemd unit files with syntax highlighting (completed 2026-02-21)
+- [ ] **Phase 5: Unit File Editor** - View and edit systemd unit files with syntax highlighting (UAT gap closure in progress)
 
 ## Phase Details
 
@@ -87,16 +87,18 @@ Plans:
   1. Navigating to a service's unit file tab displays the full content of its `.service` file from `/etc/systemd/system/` (or the loaded path) in a read-only view
   2. Clicking edit opens the unit file in a code editor with INI/systemd syntax highlighting ([Section] headers and key=value pairs are visually distinct)
   3. Saving a modified unit file writes the change to disk atomically and triggers `systemctl daemon-reload` automatically — the admin does not need to run any command manually
-**Plans:** 2/2 plans complete
+**Plans:** 4 plans (2 complete, 2 gap closure)
 
 Plans:
 - [x] 05-01-PLAN.md — Backend: exec.js daemon-reload allowlist, GET/PUT /api/unit/:service endpoints with atomic write
 - [x] 05-02-PLAN.md — Frontend: UnitFile page with CodeMirror editor, route wiring, ServiceRow FileCode link
+- [ ] 05-03-PLAN.md — Gap closure: Fix EACCES on unit file save (sudo cp), add FragmentPath+writable to service list API
+- [ ] 05-04-PLAN.md — Gap closure: Read-only syntax highlighting (CodeMirror), writable badge in ServiceRow
 
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
@@ -104,4 +106,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 2. Service Dashboard and Actions | 2/2 | Complete    | 2026-02-20 |
 | 3. Search, Filtering, and Favorites | 2/2 | Complete    | 2026-02-21 |
 | 4. Log Viewer | 1/1 | Complete    | 2026-02-21 |
-| 5. Unit File Editor | 2/2 | Complete    | 2026-02-21 |
+| 5. Unit File Editor | 2/4 | Gap closure | -- |
