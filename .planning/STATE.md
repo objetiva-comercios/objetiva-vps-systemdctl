@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-02-20)
 ## Current Position
 
 Phase: 5 of 5 (Unit File Editor)
-Plan: 3 of 3 in current phase (plan 03 complete — GAP CLOSURE COMPLETE)
-Status: Phase 5 gap closure complete — EACCES unit file save fixed, fragmentPath+writable in service list API
-Last activity: 2026-02-21 — Plan 05-03 complete: sudo cp privilege escalation for unit file write, FragmentPath in bulk service list
+Plan: 4 of 4 in current phase (plan 04 complete — ALL UAT GAPS CLOSED)
+Status: Phase 5 fully complete — syntax highlighting in read-only view, user badge for writable services in service list
+Last activity: 2026-02-21 — Plan 05-04 complete: read-only CodeMirror with syntax highlighting, user badge on writable service rows
 
 Progress: [██████████] 100%
 
@@ -31,10 +31,10 @@ Progress: [██████████] 100%
 | 02-service-dashboard-and-actions | 2 | 28min | 14min |
 | 03-search-filtering-and-favorites | 2 | 5min | 2.5min |
 | 04-log-viewer | 1 | 3min | 3min |
-| 05-unit-file-editor | 3 | 5min | 1.7min |
+| 05-unit-file-editor | 4 | 6min | 1.5min |
 
 **Recent Trend:**
-- Last 5 plans: 04-01 (3min), 05-01 (1min), 05-02 (3min), 05-03 (1min)
+- Last 5 plans: 05-01 (1min), 05-02 (3min), 05-03 (1min), 05-04 (1min)
 - Trend: Fast execution on focused feature plans
 
 *Updated after each plan completion*
@@ -84,6 +84,9 @@ Recent decisions affecting current work:
 - [05-02]: Save button disabled when editContent === unitInfo.content — no-change guard prevents unnecessary PUT requests
 - [05-02]: unitInfo.content updated in-place on save success (not refetched) — efficient and keeps Save button accurately disabled after save
 - [05-02]: Edit button disabled with title tooltip for non-writable files — UI enforces write policy matching backend /etc/systemd/system/ restriction
+- [05-04]: Read-only CodeMirror uses editable={false} AND readOnly={true} — both props for complete non-editable enforcement
+- [05-04]: highlightActiveLine: false in read-only mode — no active line gutter since there is no cursor
+- [05-04]: User badge uses border-accent/50 (not full accent) — subtle visual indicator without dominating the service name
 
 ### Pending Todos
 
@@ -97,5 +100,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-21
-Stopped at: Completed 05-unit-file-editor/05-03-PLAN.md — sudo cp privilege escalation for unit file write, FragmentPath+writable in bulk service list API — ALL GAP CLOSURE PLANS COMPLETE
+Stopped at: Completed 05-unit-file-editor/05-04-PLAN.md — read-only CodeMirror with syntax highlighting, user badge for writable services — ALL PHASE 5 PLANS COMPLETE
 Resume file: None
