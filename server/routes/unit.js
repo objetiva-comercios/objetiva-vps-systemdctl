@@ -1,10 +1,13 @@
 import express from 'express'
-import { readFile, writeFile, rename } from 'node:fs/promises'
-import { resolve, dirname, basename, join } from 'node:path'
+import { readFile, writeFile, unlink } from 'node:fs/promises'
+import { execFile } from 'node:child_process'
+import { promisify } from 'node:util'
+import { resolve, basename, join } from 'node:path'
 import { randomBytes } from 'node:crypto'
 import { SERVICE_NAME_RE, runSystemctl } from '../utils/exec.js'
 
 const router = express.Router()
+const execFileAsync = promisify(execFile)
 
 // Paths from which we allow reading unit files
 const READ_PREFIXES = [
@@ -77,7 +80,7 @@ router.get('/:service', async (req, res, next) => {
 
 // PUT /api/unit/:service
 // Body: { content: string }
-// Writes atomically (temp+rename same-dir) and triggers daemon-reload
+// Writes via sudo cp from /tmp to destination (privilege escalation for non-root server)
 router.put('/:service', async (req, res, next) => {
   try {
     const { service } = req.params
@@ -109,11 +112,13 @@ router.put('/:service', async (req, res, next) => {
       })
     }
 
-    // Atomic write: temp file in same directory as destination (same filesystem guaranteed)
-    const dir = dirname(destPath)
-    const tmpPath = join(dir, '.tmp-' + basename(destPath) + '.' + randomBytes(4).toString('hex'))
+    // Write temp file to /tmp (world-writable — no EACCES)
+    // Then sudo cp to destination and sudo chmod to set correct permissions
+    const tmpPath = join('/tmp', '.tmp-' + basename(destPath) + '.' + randomBytes(4).toString('hex'))
     await writeFile(tmpPath, content, { encoding: 'utf8', mode: 0o644 })
-    await rename(tmpPath, destPath)
+    await execFileAsync('/usr/bin/sudo', ['cp', tmpPath, destPath], { timeout: 10_000 })
+    await execFileAsync('/usr/bin/sudo', ['chmod', '0644', destPath], { timeout: 10_000 })
+    try { await unlink(tmpPath) } catch {}
 
     // daemon-reload only after successful write
     await runSystemctl('daemon-reload', null)
