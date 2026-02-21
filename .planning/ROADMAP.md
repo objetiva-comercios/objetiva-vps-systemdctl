@@ -87,6 +87,11 @@ Plans:
   1. Navigating to a service's unit file tab displays the full content of its `.service` file from `/etc/systemd/system/` (or the loaded path) in a read-only view
   2. Clicking edit opens the unit file in a code editor with INI/systemd syntax highlighting ([Section] headers and key=value pairs are visually distinct)
   3. Saving a modified unit file writes the change to disk atomically and triggers `systemctl daemon-reload` automatically — the admin does not need to run any command manually
+**Plans:** 2 plans
+
+Plans:
+- [ ] 05-01-PLAN.md — Backend: exec.js daemon-reload allowlist, GET/PUT /api/unit/:service endpoints with atomic write
+- [ ] 05-02-PLAN.md — Frontend: UnitFile page with CodeMirror editor, route wiring, ServiceRow FileCode link
 
 ## Progress
 
@@ -99,4 +104,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 2. Service Dashboard and Actions | 2/2 | Complete    | 2026-02-20 |
 | 3. Search, Filtering, and Favorites | 2/2 | Complete    | 2026-02-21 |
 | 4. Log Viewer | 1/1 | Complete    | 2026-02-21 |
-| 5. Unit File Editor | 0/? | Not started | - |
+| 5. Unit File Editor | 0/2 | Not started | - |
