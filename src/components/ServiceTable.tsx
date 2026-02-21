@@ -4,13 +4,15 @@ import ServiceRow from './ServiceRow'
 interface ServiceTableProps {
   services: ServiceEntry[]
   onServiceUpdate: (updated: ServiceEntry) => void
+  onToggleWatch: (unit: string, currentlyWatched: boolean) => void
+  isWatchedSection?: boolean
 }
 
-export default function ServiceTable({ services, onServiceUpdate }: ServiceTableProps) {
+export default function ServiceTable({ services, onServiceUpdate, onToggleWatch, isWatchedSection }: ServiceTableProps) {
   if (services.length === 0) {
     return (
       <div className="text-text-muted text-sm font-mono text-center py-8">
-        No services found
+        {isWatchedSection ? 'No watched services' : 'No services match your filters'}
       </div>
     )
   }
@@ -36,6 +38,7 @@ export default function ServiceTable({ services, onServiceUpdate }: ServiceTable
               key={service.unit}
               service={service}
               onServiceUpdate={onServiceUpdate}
+              onToggleWatch={onToggleWatch}
             />
           ))}
         </tbody>

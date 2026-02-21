@@ -9,6 +9,8 @@ import {
   Power,
   PowerOff,
   LoaderCircle,
+  Star,
+  StarOff,
 } from 'lucide-react'
 import type { ServiceEntry } from '../types/service'
 import { formatBytes, formatCpuTime, formatUptime } from '../types/service'
@@ -16,6 +18,7 @@ import { formatBytes, formatCpuTime, formatUptime } from '../types/service'
 interface ServiceRowProps {
   service: ServiceEntry
   onServiceUpdate: (updated: ServiceEntry) => void
+  onToggleWatch: (unit: string, currentlyWatched: boolean) => void
 }
 
 function StatusIcon({ active }: { active: string }) {
@@ -47,7 +50,7 @@ function EnabledBadge({ state }: { state: string }) {
   return <span className="text-text-muted text-xs font-mono">--</span>
 }
 
-export default function ServiceRow({ service, onServiceUpdate }: ServiceRowProps) {
+export default function ServiceRow({ service, onServiceUpdate, onToggleWatch }: ServiceRowProps) {
   const [actionPending, setActionPending] = useState<string | null>(null)
   const [actionError, setActionError] = useState<string | null>(null)
 
@@ -133,6 +136,22 @@ export default function ServiceRow({ service, onServiceUpdate }: ServiceRowProps
           {actionError && (
             <span className="text-danger text-xs font-mono mr-1">{actionError}</span>
           )}
+
+          {/* Star toggle (watch/unwatch) */}
+          <button
+            onClick={() => onToggleWatch(service.unit, service.isWatched)}
+            title={service.isWatched ? 'Unwatch' : 'Watch'}
+            className={`p-1 rounded transition-colors ${
+              service.isWatched
+                ? 'text-accent hover:text-accent/70'
+                : 'text-text-muted hover:text-accent'
+            }`}
+          >
+            {service.isWatched
+              ? <Star className="w-3.5 h-3.5 fill-current" />
+              : <StarOff className="w-3.5 h-3.5" />
+            }
+          </button>
 
           {/* Start (when inactive/dead/failed) */}
           {(!isActive || !isRunning) && service.active !== 'activating' && (
