@@ -1,9 +1,9 @@
 ---
-status: diagnosed
+status: resolved
 phase: 05-unit-file-editor
 source: 05-01-SUMMARY.md, 05-02-SUMMARY.md
 started: 2026-02-21T14:20:00Z
-updated: 2026-02-21T14:35:00Z
+updated: 2026-02-21T18:00:00Z
 ---
 
 ## Current Test
@@ -55,7 +55,7 @@ skipped: 0
 ## Gaps
 
 - truth: "Unit file content displays with syntax highlighting — different colors for [Section] headers and Key=Value pairs"
-  status: failed
+  status: resolved
   reason: "User reported: not seeing syntax-highlighted (different colors/styles)"
   severity: minor
   test: 3
@@ -67,7 +67,7 @@ skipped: 0
     - "Replace <pre> block with read-only CodeMirror instance using existing systemdLang extension (editable={false} readOnly={true})"
   debug_session: ".planning/debug/readonly-no-syntax-highlight.md"
 - truth: "Save writes content atomically and triggers daemon-reload"
-  status: failed
+  status: resolved
   reason: "User reported: EACCES: permission denied, open '/etc/systemd/system/.tmp-docusaurus.service.fbd484ce'"
   severity: blocker
   test: 7
@@ -79,7 +79,7 @@ skipped: 0
     - "Write temp file to /tmp, then sudo cp to destination, then sudo chmod 0644, matching the child-process pattern used by runSystemctl()"
   debug_session: ".planning/debug/unit-save-eacces.md"
 - truth: "Service list should visually distinguish editable (/etc/systemd/system/) from system-managed services"
-  status: failed
+  status: resolved
   reason: "User reported: no way to differentiate user-created services from system-managed ones in the service list"
   severity: minor
   test: 4
