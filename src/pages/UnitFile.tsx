@@ -188,9 +188,21 @@ function UnitFileViewer({ service }: { service: string }) {
 
       {/* Read-only view */}
       {!loading && !error && unitInfo && !editing && (
-        <pre className="font-mono text-xs text-text-primary bg-bg-surface border border-border rounded-md p-4 overflow-auto whitespace-pre-wrap flex-1">
-          {unitInfo.content}
-        </pre>
+        <CodeMirror
+          value={unitInfo.content}
+          height="600px"
+          theme="dark"
+          extensions={[systemdLang]}
+          editable={false}
+          readOnly={true}
+          basicSetup={{
+            lineNumbers: true,
+            foldGutter: false,
+            highlightActiveLine: false,
+          }}
+          style={{ fontFamily: 'JetBrains Mono Variable, monospace', fontSize: '13px' }}
+          className="border border-border rounded-md overflow-hidden flex-1"
+        />
       )}
 
       {/* Edit view — CodeMirror */}
