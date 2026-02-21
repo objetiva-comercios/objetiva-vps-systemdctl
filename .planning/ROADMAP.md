@@ -74,7 +74,10 @@ Plans:
   1. Opening the log view for a service displays the last N lines of `journalctl -u <service>` output
   2. Selecting a time range preset (last 5m, 15m, 1h, 6h, 1d) re-fetches logs scoped to that window
   3. Log lines containing error-level entries are styled red and warning-level entries are styled amber, making severity scannable at a glance
-**Plans**: TBD
+**Plans:** 1 plan
+
+Plans:
+- [ ] 04-01-PLAN.md — Backend log endpoint + frontend log viewer with time presets and color-coded severity
 
 ### Phase 5: Unit File Editor
 **Goal**: The admin can read and edit a service's unit file from the browser, with the change applied and reloaded on the server without SSH
@@ -95,5 +98,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 1. Foundation | 2/2 | Complete    | 2026-02-20 |
 | 2. Service Dashboard and Actions | 2/2 | Complete    | 2026-02-20 |
 | 3. Search, Filtering, and Favorites | 2/2 | Complete    | 2026-02-21 |
-| 4. Log Viewer | 0/? | Not started | - |
+| 4. Log Viewer | 0/1 | Not started | - |
 | 5. Unit File Editor | 0/? | Not started | - |
