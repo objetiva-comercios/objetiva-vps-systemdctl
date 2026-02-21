@@ -32,7 +32,7 @@
 ### Unit File Editor
 
 - [x] **UNIT-01**: User can view the content of a service's unit file
-- [ ] **UNIT-02**: User can edit unit files with INI/systemd syntax highlighting
+- [x] **UNIT-02**: User can edit unit files with INI/systemd syntax highlighting
 - [x] **UNIT-03**: Saving a unit file triggers automatic daemon-reload
 
 ### Infrastructure
@@ -114,7 +114,7 @@
 | LOGS-02 | Phase 4 | Complete |
 | LOGS-03 | Phase 4 | Complete |
 | UNIT-01 | Phase 5 | Complete |
-| UNIT-02 | Phase 5 | Pending |
+| UNIT-02 | Phase 5 | Complete |
 | UNIT-03 | Phase 5 | Complete |
 | INFR-01 | Phase 1 | Complete |
 | INFR-02 | Phase 1 | Complete (01-01) |
@@ -129,4 +129,4 @@
 
 ---
 *Requirements defined: 2026-02-20*
-*Last updated: 2026-02-20 after 01-01 completion — INFR-02, INFR-03, INFR-04 marked complete*
+*Last updated: 2026-02-21 after 05-02 completion — UNIT-02 marked complete; all v1 requirements complete*

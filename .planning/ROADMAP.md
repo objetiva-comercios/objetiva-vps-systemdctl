@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 2: Service Dashboard and Actions** - Live service list with health metrics and full service control (completed 2026-02-20)
 - [x] **Phase 3: Search, Filtering, and Favorites** - Service discovery and personal organization (completed 2026-02-21)
 - [x] **Phase 4: Log Viewer** - Per-service journalctl output with time filtering and log level coloring (completed 2026-02-21)
-- [ ] **Phase 5: Unit File Editor** - View and edit systemd unit files with syntax highlighting
+- [x] **Phase 5: Unit File Editor** - View and edit systemd unit files with syntax highlighting (completed 2026-02-21)
 
 ## Phase Details
 
@@ -91,7 +91,7 @@ Plans:
 
 Plans:
 - [x] 05-01-PLAN.md — Backend: exec.js daemon-reload allowlist, GET/PUT /api/unit/:service endpoints with atomic write
-- [ ] 05-02-PLAN.md — Frontend: UnitFile page with CodeMirror editor, route wiring, ServiceRow FileCode link
+- [x] 05-02-PLAN.md — Frontend: UnitFile page with CodeMirror editor, route wiring, ServiceRow FileCode link
 
 ## Progress
 
@@ -104,4 +104,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 2. Service Dashboard and Actions | 2/2 | Complete    | 2026-02-20 |
 | 3. Search, Filtering, and Favorites | 2/2 | Complete    | 2026-02-21 |
 | 4. Log Viewer | 1/1 | Complete    | 2026-02-21 |
-| 5. Unit File Editor | 1/2 | In progress | - |
+| 5. Unit File Editor | 2/2 | Complete    | 2026-02-21 |
