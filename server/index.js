@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url'
 import { PORT, HOST } from './config.js'
 import servicesRouter from './routes/services.js'
 import systemRouter from './routes/system.js'
+import watchedRouter from './routes/watched.js'
 
 // ESM __dirname replacement
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -24,6 +25,7 @@ app.get('/api/health', (req, res) => {
 
 app.use('/api/services', servicesRouter)
 app.use('/api/system', systemRouter)
+app.use('/api/watched', watchedRouter)
 
 // 3. Error handling middleware (registered after all API routes, before static serving)
 // eslint-disable-next-line no-unused-vars
