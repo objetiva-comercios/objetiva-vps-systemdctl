@@ -17,6 +17,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 3: Search, Filtering, and Favorites** - Service discovery and personal organization (completed 2026-02-21)
 - [x] **Phase 4: Log Viewer** - Per-service journalctl output with time filtering and log level coloring (completed 2026-02-21)
 - [x] **Phase 5: Unit File Editor** - View and edit systemd unit files with syntax highlighting (completed 2026-02-21)
+- [ ] **Phase 6: Service Action Response Fix** - Gap closure: include fragmentPath/writable in action response to prevent badge flicker
 
 ## Phase Details
 
@@ -95,10 +96,20 @@ Plans:
 - [x] 05-03-PLAN.md — Gap closure: Fix EACCES on unit file save (sudo cp), add FragmentPath+writable to service list API
 - [x] 05-04-PLAN.md — Gap closure: Read-only syntax highlighting (CodeMirror), writable badge in ServiceRow
 
+### Phase 6: Service Action Response Fix
+**Goal**: The service action response includes all fields (fragmentPath, writable) so the "user" badge and writable state persist after start/stop/restart/enable/disable without waiting for the next poll
+**Depends on**: Phase 5
+**Requirements**: DASH-02
+**Gap Closure**: Closes INT-01 and FLOW-01 from v1.0 milestone audit
+**Success Criteria** (what must be TRUE):
+  1. POST /api/services/:name/action response includes `fragmentPath` and `writable` fields matching the values from GET /api/services
+  2. After clicking any action button, the "user" badge does not disappear from the affected row
+**Plans:** 0 plans
+
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
@@ -107,3 +118,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 3. Search, Filtering, and Favorites | 2/2 | Complete    | 2026-02-21 |
 | 4. Log Viewer | 1/1 | Complete    | 2026-02-21 |
 | 5. Unit File Editor | 4/4 | Complete    | 2026-02-21 |
+| 6. Service Action Response Fix | 0/0 | Not started | -          |
