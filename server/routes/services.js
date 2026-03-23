@@ -1,3 +1,4 @@
+import { resolve } from 'node:path'
 import express from 'express'
 import { runSystemctl } from '../utils/exec.js'
 import { getAllServices, parseShowOutput } from '../utils/systemctl.js'
@@ -6,7 +7,7 @@ import db from '../db.js'
 const router = express.Router()
 
 const SHOW_PROPS =
-  'Id,Description,MainPID,MemoryCurrent,CPUUsageNSec,ActiveEnterTimestamp,ActiveState,LoadState,SubState,UnitFileState'
+  'Id,Description,MainPID,MemoryCurrent,CPUUsageNSec,ActiveEnterTimestamp,ActiveState,LoadState,SubState,UnitFileState,FragmentPath'
 
 const ALLOWED_DASHBOARD_ACTIONS = ['start', 'stop', 'restart', 'enable', 'disable']
 
@@ -71,6 +72,8 @@ router.post('/:name/action', async (req, res, next) => {
             : null,
         activeEnterTimestamp: detail.ActiveEnterTimestamp || null,
         isWatched,
+        fragmentPath: detail.FragmentPath || null,
+        writable: detail.FragmentPath ? resolve(detail.FragmentPath).startsWith('/etc/systemd/system/') : false,
       },
     })
   } catch (err) {
