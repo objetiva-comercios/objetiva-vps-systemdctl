@@ -4,6 +4,12 @@ Panel web auto-hospedado para gestionar servicios systemd en un VPS Linux. Permi
 
 Disenado para un administrador unico que gestiona entre 5 y 15 servicios en su propio servidor. Estetica de terminal oscura con foco en seguridad.
 
+## Instalacion remota
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/objetiva-comercios/objetiva-vps-systemdctl/master/install.sh | bash
+```
+
 ## Tecnologias
 
 | Categoria | Tecnologia |

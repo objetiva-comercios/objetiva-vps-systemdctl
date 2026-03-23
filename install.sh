@@ -4,7 +4,7 @@
 # Panel web para administrar servicios systemd en un VPS Linux
 #
 # Uso:
-#   curl -fsSL https://raw.githubusercontent.com/objetiva-comercios/objetiva-vps-systemdctl/main/install.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/objetiva-comercios/objetiva-vps-systemdctl/master/install.sh | bash
 #   o bien:
 #   git clone <repo> /opt/systemdctl && cd /opt/systemdctl && bash install.sh
 # ============================================================================
