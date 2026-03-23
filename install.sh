@@ -4,9 +4,9 @@
 # Panel web para administrar servicios systemd en un VPS Linux
 #
 # Uso:
-#   curl -fsSL https://raw.githubusercontent.com/objetiva-comercios/objetiva-vps-systemdctl/main/install.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/objetiva-comercios/objetiva-vps-systemdctl/main/install.sh | sudo bash
 #   o bien:
-#   git clone <repo> /opt/systemdctl && cd /opt/systemdctl && bash install.sh
+#   git clone <repo> /opt/systemdctl && cd /opt/systemdctl && sudo bash install.sh
 # ============================================================================
 
 set -euo pipefail
@@ -53,28 +53,45 @@ check_os() {
   esac
 }
 
+install_node() {
+  info "Instalando Node.js 22.x..."
+  curl -fsSL https://deb.nodesource.com/setup_22.x | bash - >/dev/null 2>&1
+  apt-get install -y -qq nodejs >/dev/null 2>&1
+  if command -v node &>/dev/null; then
+    log "Node.js $(node -v) instalado"
+  else
+    err "No se pudo instalar Node.js automaticamente."
+    err "Instalar manualmente: https://nodejs.org/"
+    exit 1
+  fi
+}
+
 check_node() {
   if ! command -v node &>/dev/null; then
-    err "Node.js no esta instalado."
-    info "Instalar Node.js 22.x:"
-    info "  curl -fsSL https://deb.nodesource.com/setup_22.x | bash -"
-    info "  apt-get install -y nodejs"
-    exit 1
+    warn "Node.js no esta instalado."
+    install_node
+    return
   fi
 
   local node_version
   node_version=$(node -v | sed 's/v//' | cut -d. -f1)
   if (( node_version < NODE_MIN_VERSION )); then
-    err "Node.js >= ${NODE_MIN_VERSION} requerido. Version actual: $(node -v)"
-    exit 1
+    warn "Node.js >= ${NODE_MIN_VERSION} requerido. Version actual: $(node -v)"
+    info "Actualizando Node.js..."
+    install_node
+    return
   fi
   log "Node.js $(node -v) detectado"
 }
 
 check_npm() {
   if ! command -v npm &>/dev/null; then
-    err "npm no esta instalado."
-    exit 1
+    warn "npm no esta instalado. Instalando..."
+    apt-get install -y -qq npm >/dev/null 2>&1
+    if ! command -v npm &>/dev/null; then
+      err "No se pudo instalar npm."
+      exit 1
+    fi
   fi
   log "npm $(npm -v) detectado"
 }

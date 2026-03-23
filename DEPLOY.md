@@ -68,7 +68,7 @@ NODE_ENV=production
 ## Instalacion rapida (script automatico)
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/objetiva-comercios/objetiva-vps-systemdctl/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/objetiva-comercios/objetiva-vps-systemdctl/main/install.sh | sudo bash
 ```
 
 O clonar y ejecutar manualmente:
