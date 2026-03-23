@@ -104,7 +104,10 @@ Plans:
 **Success Criteria** (what must be TRUE):
   1. POST /api/services/:name/action response includes `fragmentPath` and `writable` fields matching the values from GET /api/services
   2. After clicking any action button, the "user" badge does not disappear from the affected row
-**Plans:** 0 plans
+**Plans:** 1 plan
+
+Plans:
+- [ ] 06-01-PLAN.md — Add fragmentPath+writable to action endpoint response
 
 ## Progress
 
@@ -118,4 +121,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | 3. Search, Filtering, and Favorites | 2/2 | Complete    | 2026-02-21 |
 | 4. Log Viewer | 1/1 | Complete    | 2026-02-21 |
 | 5. Unit File Editor | 4/4 | Complete    | 2026-02-21 |
-| 6. Service Action Response Fix | 0/0 | Not started | -          |
+| 6. Service Action Response Fix | 0/1 | Not started | -          |
