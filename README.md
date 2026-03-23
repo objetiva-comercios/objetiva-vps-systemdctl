@@ -7,7 +7,7 @@ Disenado para un administrador unico que gestiona entre 5 y 15 servicios en su p
 ## Instalacion remota
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/objetiva-comercios/objetiva-vps-systemdctl/master/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/objetiva-comercios/objetiva-vps-systemdctl/main/install.sh | bash
 ```
 
 ## Tecnologias
