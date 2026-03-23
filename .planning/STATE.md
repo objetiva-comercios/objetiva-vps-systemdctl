@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: completed
-stopped_at: Phase 6 context gathered
-last_updated: "2026-03-23T19:36:48.797Z"
+stopped_at: Completed 06-01-PLAN.md
+last_updated: "2026-03-23T20:14:08.137Z"
 last_activity: "2026-02-21 — Plan 05-04 complete: read-only CodeMirror with syntax highlighting, user badge on writable service rows"
 progress:
   total_phases: 6
-  completed_phases: 5
-  total_plans: 11
-  completed_plans: 11
+  completed_phases: 6
+  total_plans: 12
+  completed_plans: 12
   percent: 100
 ---
 
@@ -54,6 +54,7 @@ Progress: [██████████] 100%
 - Trend: Fast execution on focused feature plans
 
 *Updated after each plan completion*
+| Phase 06-service-action-response-fix P01 | 1min | 1 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -103,6 +104,7 @@ Recent decisions affecting current work:
 - [05-04]: Read-only CodeMirror uses editable={false} AND readOnly={true} — both props for complete non-editable enforcement
 - [05-04]: highlightActiveLine: false in read-only mode — no active line gutter since there is no cursor
 - [05-04]: User badge uses border-accent/50 (not full accent) — subtle visual indicator without dominating the service name
+- [Phase 06-service-action-response-fix]: FragmentPath added to SHOW_PROPS in action endpoint so single show query fetches it — same writable derivation as getAllServices() for consistent service shape
 
 ### Pending Todos
 
@@ -115,6 +117,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-23T19:36:48.792Z
-Stopped at: Phase 6 context gathered
-Resume file: .planning/phases/06-service-action-response-fix/06-CONTEXT.md
+Last session: 2026-03-23T20:14:08.133Z
+Stopped at: Completed 06-01-PLAN.md
+Resume file: None
